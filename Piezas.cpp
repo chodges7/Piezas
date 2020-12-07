@@ -61,7 +61,7 @@ Piece Piezas::dropPiece(int column) {
 
   // Then we will check if the move is valid
   if(column >= BOARD_COLS || column < 0) {
-    return Invalid
+    return Invalid;
   }
 
   // Then check the board starting at the bottom row for an empty square
@@ -89,7 +89,7 @@ Piece Piezas::pieceAt(int row, int column) {
     return Invalid;
   }
   if(column >= BOARD_COLS || column < 0) {
-    return Invalid
+    return Invalid;
   }
 
   // Just return what's at the board since it
