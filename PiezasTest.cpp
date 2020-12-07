@@ -82,3 +82,39 @@ TEST(PiezasTest, pieceAt_invalid_both_high) {
 
 	ASSERT_EQ(out, Invalid);
 }
+
+TEST(PiezasTest, pieceAt_valid_blank) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 0;
+  int col = 0;
+
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, Blank);
+}
+
+TEST(PiezasTest, pieceAt_valid_X) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 2;
+  int col = 0;
+
+  myPiezas.dropPiece(col);
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, X);
+}
+
+TEST(PiezasTest, pieceAt_valid_O) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 2;
+  int col = 1;
+
+  myPiezas.dropPiece(col * -1); // get it to be O's turn
+  myPiezas.dropPiece(col);
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, O);
+}
