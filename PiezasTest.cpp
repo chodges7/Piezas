@@ -16,3 +16,69 @@ class PiezasTest : public ::testing::Test {
 TEST(PiezasTest, sanityCheck) {
 	ASSERT_TRUE(true);
 }
+
+TEST(PiezasTest, pieceAt_invalid_row_low) {
+  Piezas myPiezas;
+  Piece out;
+  int row = -5;
+  int col = 0;
+
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, Invalid);
+}
+
+TEST(PiezasTest, pieceAt_invalid_row_high) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 17;
+  int col = 0;
+
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, Invalid);
+}
+
+TEST(PiezasTest, pieceAt_invalid_col_low) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 0;
+  int col = -26;
+
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, Invalid);
+}
+
+TEST(PiezasTest, pieceAt_invalid_col_high) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 0;
+  int col = 9;
+
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, Invalid);
+}
+
+TEST(PiezasTest, pieceAt_invalid_both_low) {
+  Piezas myPiezas;
+  Piece out;
+  int row = -8;
+  int col = -8;
+
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, Invalid);
+}
+
+TEST(PiezasTest, pieceAt_invalid_both_high) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 88;
+  int col = 88;
+
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, Invalid);
+}
