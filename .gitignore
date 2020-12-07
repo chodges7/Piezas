@@ -27,3 +27,9 @@
 *.exe
 *.out
 *.app
+
+# gtest and main executable
+*.gcov
+*.gcda
+*.gcno
+PiezasTest
