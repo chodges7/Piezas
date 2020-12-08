@@ -128,7 +128,7 @@ Piece Piezas::gameState() {
         current++;
       }
       else {
-        break; // we break bc it breaks the chain
+        j = BOARD_COLS; // we break bc it breaks the chain
       }
     }
     if(temp == O && current > longest_O) {
@@ -148,7 +148,7 @@ Piece Piezas::gameState() {
         current++;
       }
       else {
-        break; // we break bc it breaks the chain
+        j = -1; // we break bc it breaks the chain
       }
     }
     if(temp == O && current > longest_O) {
@@ -159,7 +159,7 @@ Piece Piezas::gameState() {
     }
   }
 
-  // Rows forwards
+  // Cols forwards
   for(int i = 0; i < BOARD_COLS; i++) {
     int current = 0;
     Piece temp = board[0][i];
@@ -168,7 +168,7 @@ Piece Piezas::gameState() {
         current++;
       }
       else {
-        break; // we break bc it breaks the chain
+        j = BOARD_ROWS; // we break bc it breaks the chain
       }
     }
     if(temp == O && current > longest_O) {
@@ -188,7 +188,7 @@ Piece Piezas::gameState() {
         current++;
       }
       else {
-        break; // we break bc it breaks the chain
+        j = -1; // we break bc it breaks the chain
       }
     }
     if(temp == O && current > longest_O) {

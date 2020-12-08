@@ -191,3 +191,98 @@ TEST(PiezasTest, dropPiece_invalid_col) {
 
 	ASSERT_EQ(out, Invalid);
 }
+
+TEST(PiezasTest, gameState_test_Invalid) {
+  Piezas myPiezas;
+  Piece out;
+  int col = 0;
+
+  myPiezas.dropPiece(col);
+  out = myPiezas.gameState();
+
+	ASSERT_EQ(out, Invalid);
+}
+
+TEST(PiezasTest, gameState_test_valid_Blank) {
+  Piezas myPiezas;
+  Piece out;
+	int col_0 = 0;
+  int col_1 = 1;
+	int col_2 = 2;
+	int col_3 = 3;
+
+  myPiezas.dropPiece(col_0); // fill up board
+	myPiezas.dropPiece(col_2);
+	myPiezas.dropPiece(col_1);
+	myPiezas.dropPiece(col_3);
+
+	myPiezas.dropPiece(col_0); // copy paste 1
+	myPiezas.dropPiece(col_2);
+	myPiezas.dropPiece(col_1);
+	myPiezas.dropPiece(col_3);
+
+	myPiezas.dropPiece(col_0); // copy paste 2
+	myPiezas.dropPiece(col_2);
+	myPiezas.dropPiece(col_1);
+	myPiezas.dropPiece(col_3);
+
+  out = myPiezas.gameState();
+
+	ASSERT_EQ(out, Blank);
+}
+
+TEST(PiezasTest, gameState_test_valid_X) {
+  Piezas myPiezas;
+  Piece out;
+	int col_0 = 0;
+  int col_1 = 1;
+	int col_2 = 2;
+	int col_3 = 3;
+
+  myPiezas.dropPiece(col_0); // fill up board
+	myPiezas.dropPiece(col_1);
+	myPiezas.dropPiece(col_3);
+	myPiezas.dropPiece(col_2);
+
+	myPiezas.dropPiece(col_0);
+	myPiezas.dropPiece(col_1);
+	myPiezas.dropPiece(col_2);
+	myPiezas.dropPiece(col_3);
+
+	myPiezas.dropPiece(col_0);
+	myPiezas.dropPiece(col_2);
+	myPiezas.dropPiece(col_1);
+	myPiezas.dropPiece(col_3);
+
+  out = myPiezas.gameState();
+
+	ASSERT_EQ(out, O);
+}
+
+TEST(PiezasTest, gameState_test_valid_O) {
+  Piezas myPiezas;
+  Piece out;
+	int col_0 = 0;
+  int col_1 = 1;
+	int col_2 = 2;
+	int col_3 = 3;
+
+  myPiezas.dropPiece(col_2); // fill up board
+	myPiezas.dropPiece(col_0);
+	myPiezas.dropPiece(col_3);
+	myPiezas.dropPiece(col_1);
+
+	myPiezas.dropPiece(col_3);
+	myPiezas.dropPiece(col_2);
+	myPiezas.dropPiece(col_1);
+	myPiezas.dropPiece(col_0);
+
+	myPiezas.dropPiece(col_1);
+	myPiezas.dropPiece(col_0);
+	myPiezas.dropPiece(col_2);
+	myPiezas.dropPiece(col_3);
+
+  out = myPiezas.gameState();
+
+	ASSERT_EQ(out, X);
+}
