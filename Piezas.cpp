@@ -116,7 +116,8 @@ Piece Piezas::gameState() {
     }
   }
 
-  int longest_X = 0;
-  int longest_O = 0;
+  //int longest_X = 0;
+  //int longest_O = 0;
 
+  return Blank;
 } // gameState()

@@ -118,3 +118,76 @@ TEST(PiezasTest, pieceAt_valid_O) {
 
 	ASSERT_EQ(out, O);
 }
+
+TEST(PiezasTest, reset_test) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 2;
+  int col = 0;
+
+  myPiezas.dropPiece(col); // first place a piece
+	myPiezas.reset(); // then reset the board
+  out = myPiezas.pieceAt(row, col); // then double check if the piece is there
+
+	ASSERT_EQ(out, Blank);
+}
+
+TEST(PiezasTest, dropPiece_valid_col_0) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 2;
+  int col = 0;
+
+  myPiezas.dropPiece(col);
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, X);
+}
+
+TEST(PiezasTest, dropPiece_valid_col_1) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 2;
+  int col = 1;
+
+  myPiezas.dropPiece(col);
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, X);
+}
+
+TEST(PiezasTest, dropPiece_valid_col_2) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 2;
+  int col = 2;
+
+  myPiezas.dropPiece(col);
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, X);
+}
+
+TEST(PiezasTest, dropPiece_valid_col_3) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 2;
+  int col = 3;
+
+  myPiezas.dropPiece(col);
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, X);
+}
+
+TEST(PiezasTest, dropPiece_invalid_col) {
+  Piezas myPiezas;
+  Piece out;
+  int row = 2;
+  int col = 10;
+
+  myPiezas.dropPiece(col);
+  out = myPiezas.pieceAt(row, col);
+
+	ASSERT_EQ(out, Invalid);
+}
