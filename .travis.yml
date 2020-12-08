@@ -21,4 +21,4 @@ script:
   - ./PiezasTest
 
 after_success:
-  - coveralls --exclude *Test.cpp --exclude gtest/ --gcov-options '\-lpbc'
+  - coveralls --exclude *Test.cpp --exclude googletest/ --exclude gtest/ --gcov-options '\-lpbc'
