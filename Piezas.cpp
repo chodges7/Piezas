@@ -116,8 +116,104 @@ Piece Piezas::gameState() {
     }
   }
 
-  //int longest_X = 0;
-  //int longest_O = 0;
+  int longest_X = 0;
+  int longest_O = 0;
+  int longest_X_index = 0;
+  int longest_O_index = 0;
 
+  // Rows forwards
+  for(int i = 0; i < BOARD_ROWS; i++) {
+    int current = 0;
+    Piece temp = board[i][0];
+    for(int j = 0; j < BOARD_COLS; j++) {
+      if(temp == board[i][j]) {
+        current++;
+      }
+      else {
+        break; // we break bc it breaks the chain
+      }
+    }
+    if(temp == O && current > longest_O) {
+      longest_O = current;
+      longest_O_index = i;
+    }
+    if(temp == X && current > longest_X) {
+      longest_X = current;
+      longest_X_index = i;
+    }
+  }
+
+  // Rows backwards
+  for(int i = 0; i < BOARD_ROWS; i++) {
+    int current = 0;
+    Piece temp = board[i][BOARD_COLS - 1];
+    for(int j = BOARD_COLS - 1; j < -1; j--) {
+      if(temp == board[i][j]) {
+        current++;
+      }
+      else {
+        break; // we break bc it breaks the chain
+      }
+    }
+    if(temp == O && current > longest_O) {
+      longest_O = current;
+      longest_O_index = i;
+    }
+    if(temp == X && current > longest_X) {
+      longest_X = current;
+      longest_X_index = i;
+    }
+  }
+
+  // Rows forwards
+  for(int i = 0; i < BOARD_COLS; i++) {
+    int current = 0;
+    Piece temp = board[0][i];
+    for(int j = 0; j < BOARD_ROWS; j++) {
+      if(temp == board[j][i]) {
+        current++;
+      }
+      else {
+        break; // we break bc it breaks the chain
+      }
+    }
+    if(temp == O && current > longest_O) {
+      longest_O = current;
+      longest_O_index = i;
+    }
+    if(temp == X && current > longest_X) {
+      longest_X = current;
+      longest_X_index = i;
+    }
+  }
+
+  // Cols backwards
+  for(int i = 0; i < BOARD_COLS; i++) {
+    int current = 0;
+    Piece temp = board[BOARD_ROWS - 1][0];
+    for(int j = BOARD_ROWS - 1; j < -1; j--) {
+      if(temp == board[j][i]) {
+        current++;
+      }
+      else {
+        break; // we break bc it breaks the chain
+      }
+    }
+    if(temp == O && current > longest_O) {
+      longest_O = current;
+      longest_O_index = i;
+    }
+    if(temp == X && current > longest_X) {
+      longest_X = current;
+      longest_X_index = i;
+    }
+  }
+
+  if(longest_X > longest_O) {
+    return X;
+  }
+  else if(longest_X < longest_O) {
+    return O;
+  }
   return Blank;
 } // gameState()
