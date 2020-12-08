@@ -118,8 +118,6 @@ Piece Piezas::gameState() {
 
   int longest_X = 0;
   int longest_O = 0;
-  int longest_X_index = 0;
-  int longest_O_index = 0;
 
   // Rows forwards
   for(int i = 0; i < BOARD_ROWS; i++) {
@@ -135,11 +133,9 @@ Piece Piezas::gameState() {
     }
     if(temp == O && current > longest_O) {
       longest_O = current;
-      longest_O_index = i;
     }
     if(temp == X && current > longest_X) {
       longest_X = current;
-      longest_X_index = i;
     }
   }
 
@@ -157,11 +153,9 @@ Piece Piezas::gameState() {
     }
     if(temp == O && current > longest_O) {
       longest_O = current;
-      longest_O_index = i;
     }
     if(temp == X && current > longest_X) {
       longest_X = current;
-      longest_X_index = i;
     }
   }
 
@@ -179,11 +173,9 @@ Piece Piezas::gameState() {
     }
     if(temp == O && current > longest_O) {
       longest_O = current;
-      longest_O_index = i;
     }
     if(temp == X && current > longest_X) {
       longest_X = current;
-      longest_X_index = i;
     }
   }
 
@@ -201,11 +193,9 @@ Piece Piezas::gameState() {
     }
     if(temp == O && current > longest_O) {
       longest_O = current;
-      longest_O_index = i;
     }
     if(temp == X && current > longest_X) {
       longest_X = current;
-      longest_X_index = i;
     }
   }
 
