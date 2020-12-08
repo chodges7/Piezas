@@ -70,6 +70,7 @@ Piece Piezas::dropPiece(int column) {
     if(board[i][column] == Blank){
       dropped = true;
       board[i][column] = realTurn;
+      break;
     }
   }
 
@@ -128,7 +129,7 @@ Piece Piezas::gameState() {
         current++;
       }
       else {
-        j = BOARD_COLS; // we break bc it breaks the chain
+        break; // we break bc it breaks the chain
       }
     }
     if(temp == O && current > longest_O) {
@@ -148,7 +149,7 @@ Piece Piezas::gameState() {
         current++;
       }
       else {
-        j = -1; // we break bc it breaks the chain
+        break; // we break bc it breaks the chain
       }
     }
     if(temp == O && current > longest_O) {
@@ -168,7 +169,7 @@ Piece Piezas::gameState() {
         current++;
       }
       else {
-        j = BOARD_ROWS; // we break bc it breaks the chain
+        break; // we break bc it breaks the chain
       }
     }
     if(temp == O && current > longest_O) {
@@ -188,7 +189,7 @@ Piece Piezas::gameState() {
         current++;
       }
       else {
-        j = -1; // we break bc it breaks the chain
+        break; // we break bc it breaks the chain
       }
     }
     if(temp == O && current > longest_O) {
