@@ -1,4 +1,4 @@
-# Piezas [![Build Status](https://travis-ci.com/chodges7/Piezas.svg?branch=master)](https://travis-ci.com/chodges7/Piezas)
+# Piezas [![Build Status](https://travis-ci.com/chodges7/Piezas.svg?branch=master)](https://travis-ci.com/chodges7/Piezas) [![Coverage Status](https://coveralls.io/repos/github/chodges7/Piezas/badge.svg?branch=master)](https://coveralls.io/github/chodges7/Piezas?branch=master)
 
 ## Associated Enumerated Types
 `Piece` has four possible values: `X`,`O`,`Invalid`, and `Blank`
